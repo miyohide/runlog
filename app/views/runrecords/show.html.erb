@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Runned at:</strong>
+  <%= @runrecord.runned_at %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @runrecord.distance %>
+</p>
+
+<p>
+  <strong>Run time:</strong>
+  <%= @runrecord.run_time %>
+</p>
+
+<%= link_to 'Edit', edit_runrecord_path(@runrecord) %> |
+<%= link_to 'Back', runrecords_path %>
