@@ -4,7 +4,7 @@ class RunrecordsController < ApplicationController
   # GET /runrecords
   # GET /runrecords.json
   def index
-    @runrecords = Runrecord.all
+    @runrecords = Runrecord.order(runned_at: :desc).page params[:page]
   end
 
   # GET /runrecords/1
