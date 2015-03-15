@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
+//= require jquery.jqplot.min
+//= require jqplot.dateAxisRenderer.min
+//= require jqplot.canvasTextRenderer.min
+//= require jqplot.canvasAxisTickRenderer.min
+//= require jqplot.categoryAxisRenderer.min
+//= require jqplot.barRenderer.min
 
 $(function(){ $(document).foundation(); });
