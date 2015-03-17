@@ -1,5 +1,5 @@
 class RunrecordsController < ApplicationController
-  before_action :set_runrecord, only: [:show, :edit, :update, :destroy]
+  before_action :set_runrecord, only: [:show, :edit, :update]
 
   # GET /runrecords
   # GET /runrecords.json
@@ -49,16 +49,6 @@ class RunrecordsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @runrecord.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /runrecords/1
-  # DELETE /runrecords/1.json
-  def destroy
-    @runrecord.destroy
-    respond_to do |format|
-      format.html { redirect_to runrecords_url, notice: 'Runrecord was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

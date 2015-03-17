@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :runrecords
+  resources :runrecords, except: [:destroy]
 
   root "runrecords#index"
 
