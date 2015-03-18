@@ -6,19 +6,18 @@
       <th>Runned at</th>
       <th>Distance</th>
       <th>Run time</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @runrecords.each do |runrecord| %>
       <tr>
-        <td><%= runrecord.runned_at %></td>
+        <td><%= runrecord.runned_at.utc_to_ja %></td>
         <td><%= runrecord.distance %></td>
         <td><%= runrecord.run_time %></td>
         <td><%= link_to 'Show', runrecord, class: "button tiny" %></td>
         <td><%= link_to 'Edit', edit_runrecord_path(runrecord), class: "button tiny" %></td>
-        <td><%= link_to 'Destroy', runrecord, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny" %></td>
       </tr>
     <% end %>
     <%= paginate @runrecords %>
