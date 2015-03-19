@@ -5,7 +5,7 @@ class RunrecordsController < ApplicationController
   # GET /runrecords.json
   def index
     @runrecords = Runrecord.order(runned_at: :desc).page params[:page]
-    gon.runrecords = @runrecords
+    gon.runrecords = distance_map(@runrecords)
   end
 
   # GET /runrecords/1
@@ -61,5 +61,9 @@ class RunrecordsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def runrecord_params
       params.require(:runrecord).permit(:runned_at, :distance, :run_time)
+    end
+
+    def distance_map(runrecords)
+      runrecords.map { |r| { runned_at: r.runned_at.utc_to_ja, distance: r.distance } }
     end
 end
