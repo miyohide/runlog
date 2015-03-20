@@ -9,13 +9,23 @@ $(document).ready(function() {
     axesDefaults: {
       tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
       tickOptions: {
-        angle: -30,
+        angle: -80,
         fontSize: '10pt'
       }
     },
     axes: {
       xaxis: {
         renderer: $.jqplot.CategoryAxisRenderer
+      },
+      yaxis: {
+        label: "distance",
+        min: 0,
+        max: 50,
+        pad: 10,
+        numberTicks: 11,
+        tickOptions: {
+          angle: 0
+        }
       }
     }
   });
