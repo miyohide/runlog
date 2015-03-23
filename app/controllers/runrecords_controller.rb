@@ -64,6 +64,8 @@ class RunrecordsController < ApplicationController
     end
 
     def distance_map(runrecords)
-      runrecords.map { |r| { runned_at: r.runned_at.utc_to_ja, distance: r.distance } }
+      runrecords.map do |r|
+        { runned_at: r.runned_at.utc_to_ja.strftime("%Y/%m/%d %H:%M:%S"), distance: r.distance }
+      end
     end
 end
