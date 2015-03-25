@@ -13,7 +13,7 @@
   <tbody>
     <% @runrecords.each do |runrecord| %>
       <tr>
-        <td><%= runrecord.runned_at.utc_to_ja.strftime("%Y/%m/%d %H:%M:%S") %></td>
+        <td><%= I18n.localize(runrecord.runned_at.utc_to_ja) %></td>
         <td><%= runrecord.distance %></td>
         <td><%= runrecord.run_time %></td>
         <td><%= link_to 'Show', runrecord, class: "button tiny" %></td>
