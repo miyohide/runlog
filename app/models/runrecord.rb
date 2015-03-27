@@ -1,7 +1,8 @@
 class Runrecord < ActiveRecord::Base
   def pace
     pace_by_second = runtime_to_seconds / self.distance
-    second_to_minute(pace_by_second)
+    # second_to_minute(pace_by_second) # 一旦コメント化
+    pace_by_second
   end
 
   def runtime_to_seconds
@@ -12,8 +13,10 @@ class Runrecord < ActiveRecord::Base
     runtime_second
   end
 
-  def second_to_minute(pace)
-    q, r = pace.divmod(60)
-    sprintf("%02d:%02d", q, r)
-  end
+  # 一旦コメント化。グラフ化する際に数値でないとうまくグラフにならない
+  # ようなので、いつか使う時が来たら有効化する。
+  # def second_to_minute(pace)
+  #   q, r = pace.divmod(60)
+  #   sprintf("%02d:%02d", q, r)
+  # end
 end

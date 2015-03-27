@@ -1,11 +1,18 @@
 $(document).ready(function() {
-  var plot_data = [];
+  var distance_data = [];
+  var pace_data = [];
+
   for(var i = 0; i < gon.runrecords.length; i++ ) {
-    plot_data.push([gon.runrecords[i].runned_at, gon.runrecords[i].distance]);
+    distance_data.push([gon.runrecords[i].runned_at, gon.runrecords[i].distance]);
   }
-  $.jqplot("chartdiv", [plot_data], {
+
+  for(var i = 0; i < gon.pace_records.length; i++ ) {
+    pace_data.push([gon.pace_records[i].runned_at, gon.pace_records[i].pace]);
+  }
+
+  $.jqplot("chartdiv", [distance_data, pace_data], {
     title: "Run Log",
-    series:[{renderer:$.jqplot.BarRenderer}],
+    series:[{renderer:$.jqplot.BarRenderer}, {xaxis:"xaxis", yaxis:"y2axis"}],
     axesDefaults: {
       tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
       tickOptions: {
@@ -23,6 +30,13 @@ $(document).ready(function() {
         max: 50,
         pad: 10,
         numberTicks: 11,
+        tickOptions: {
+          angle: 0
+        }
+      },
+      y2axis: {
+        min: 100,
+        max: 400,
         tickOptions: {
           angle: 0
         }

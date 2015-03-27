@@ -6,6 +6,7 @@ class RunrecordsController < ApplicationController
   def index
     @runrecords = Runrecord.order(runned_at: :desc).page params[:page]
     gon.runrecords = distance_map(@runrecords)
+    gon.pace_records = pace_map(@runrecords)
   end
 
   # GET /runrecords/1
@@ -66,6 +67,12 @@ class RunrecordsController < ApplicationController
     def distance_map(runrecords)
       runrecords.map do |r|
         { runned_at: I18n.localize(r.runned_at.utc_to_ja), distance: r.distance }
+      end
+    end
+
+    def pace_map(runrecords)
+      runrecords.map do |r|
+        { runned_at: I18n.localize(r.runned_at.utc_to_ja), pace: r.pace }
       end
     end
 end
