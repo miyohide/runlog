@@ -27,4 +27,5 @@ end
 gem 'kaminari'
 gem 'foundation-rails'
 gem 'gon'
+gem 'tori', require: 'tori/rails'
 
