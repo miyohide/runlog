@@ -1,0 +1,5 @@
+<%= form_for(@garmin_log, multipart: true) do |f| %>
+  <%= f.file_field "csv_file" %>
+  <%= f.button "Upload" %>
+<% end %>
+
