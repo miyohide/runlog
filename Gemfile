@@ -29,3 +29,5 @@ gem 'foundation-rails'
 gem 'gon'
 gem 'tori', require: 'tori/rails'
 
+gem 'quiet_assets', group: :development
+
