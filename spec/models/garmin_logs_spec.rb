@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GarminLogs, type: :model do
+RSpec.describe GarminLog, type: :model do
   describe "#csv_parse" do
     let(:garmin_log) { GarminLog.new }
     before do
