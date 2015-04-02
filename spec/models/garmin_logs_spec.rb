@@ -11,7 +11,7 @@ RSpec.describe GarminLog, type: :model do
  false,タイトルなし,ランニング,--,"土, 2014 10 11 9:12 午前",3:15:05,30.03,144,6:30,3:56,--,--,"1,686",--,--,--,--,--,--,
  false,タイトルなし,ランニング,--,"日, 2014 10 5 2:00 午後",13:26,3.02,11,4:27,3:42,--,--,173,--,--,--,--,--,--,
       EOF
-      allow(garmin_log).to receive(:read).and_return(data)
+      allow(garmin_log).to receive_message_chain(:csv_file, :read).and_return(data)
 
       @parse_result = garmin_log.parse_csv
     end
