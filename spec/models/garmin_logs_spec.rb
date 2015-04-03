@@ -19,11 +19,11 @@ RSpec.describe GarminLog, type: :model do
     it "get distance, time, stat date" do
       expect(@parse_result[0][:distance]).to eq(30.03)
       expect(@parse_result[0][:run_time]).to eq("3:15:05")
-      expect(@parse_result[0][:started_at]).to eq("2014/10/11 09:12:00")
+      expect(@parse_result[0][:started_at].to_s).to eq(Time.mktime(2014,10,11,9,12,0).to_s)
 
       expect(@parse_result[1][:distance]).to eq(3.02)
       expect(@parse_result[1][:run_time]).to eq("0:13:26")
-      expect(@parse_result[1][:started_at]).to eq("2014/10/05 14:00:00")
+      expect(@parse_result[1][:started_at].to_s).to eq(Time.mktime(2014,10,5,14,0,0).to_s)
 
     end
   end
