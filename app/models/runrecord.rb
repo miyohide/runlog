@@ -13,6 +13,12 @@ class Runrecord < ActiveRecord::Base
     runtime_second
   end
 
+  def self.save_logs(logs)
+    logs.each do |log|
+      Runrecord.create(runned_at: log[:started_at], distance: log[:distance],
+                       run_time: log[:run_time])
+    end
+  end
   # 一旦コメント化。グラフ化する際に数値でないとうまくグラフにならない
   # ようなので、いつか使う時が来たら有効化する。
   # def second_to_minute(pace)
