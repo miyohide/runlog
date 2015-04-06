@@ -4,7 +4,9 @@ class GarminLogsController < ApplicationController
   end
 
   def create
-    GarminLog.create(garmin_log_params)
+    garmin_log = GarminLog.create(garmin_log_params)
+
+    Runrecord.save_logs(garmin_log.parse_csv)
     redirect_to root_path
   end
 
