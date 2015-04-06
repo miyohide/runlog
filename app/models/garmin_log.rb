@@ -5,8 +5,6 @@ class GarminLog < ActiveRecord::Base
     csv_file.write if csv_file.from?
   end
 
-  after_save :parse_csv
-
   after_destroy do
     csv_file.delete
   end
