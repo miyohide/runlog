@@ -14,11 +14,13 @@ class Runrecord < ActiveRecord::Base
   end
 
   def self.save_logs(logs)
+    ActiveRecord::Base.transaction do
       logs.each do |log|
         unless Runrecord.exists?(runned_at: log[:started_at])
           Runrecord.create(runned_at: log[:started_at],
                            distance: log[:distance],
                            run_time: log[:run_time])
+        end
       end
     end
   end
