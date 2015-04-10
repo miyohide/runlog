@@ -44,4 +44,16 @@ RSpec.describe Runrecord, type: :model do
       end
     end
   end
+
+  describe "#save_logs" do
+    context "don't have runrecord" do
+      it "create record" do
+        expect {
+          Runrecord.save_logs([{started_at: Time.mktime(2015, 4, 10, 11, 12),
+                                distance: 10.2,
+                                run_time: "1:01:15"}])
+        }.to change{ Runrecord.count }.from(0).to(1)
+      end
+    end
+  end
 end
