@@ -6,7 +6,7 @@ RSpec.describe Runrecord, type: :model do
       let(:record) { Runrecord.new(distance: 10.000, run_time: "1:00:00") }
 
       it "pace is run_time/distance" do
-        expect(record.pace).to eq("06:00")
+        expect(record.pace).to eq(360.0)
       end
     end
 
@@ -14,7 +14,7 @@ RSpec.describe Runrecord, type: :model do
       let(:record) { Runrecord.new(distance: 10.000, run_time: "0:45:38") }
 
       it "pace is run_time/distance" do
-        expect(record.pace).to eq("04:33")
+        expect(record.pace).to eq(273.8)
       end
     end
   end
