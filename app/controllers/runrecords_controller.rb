@@ -5,6 +5,7 @@ class RunrecordsController < ApplicationController
   # GET /runrecords.json
   def index
     @runrecords = Runrecord.order(runned_at: :desc).page params[:page]
+    @garmin_log = GarminLog.new
     gon.runrecords = distance_map(@runrecords)
     gon.pace_records = pace_map(@runrecords)
   end

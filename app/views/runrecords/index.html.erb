@@ -1,5 +1,10 @@
 <h1>Listing runrecords</h1>
 
+<%= form_for(@garmin_log, multipart: true) do |f| %>
+  <%= f.file_field "csv_file" %>
+  <%= f.button "Upload" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -26,4 +31,3 @@
 
 <br>
 
-<%= link_to 'New Runrecord', new_runrecord_path %>
