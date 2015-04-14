@@ -28,6 +28,6 @@ gem 'kaminari'
 gem 'foundation-rails'
 gem 'gon'
 gem 'tori', require: 'tori/rails'
-
+gem 'sorcery'
 gem 'quiet_assets', group: :development
 
