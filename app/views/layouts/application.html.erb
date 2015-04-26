@@ -12,13 +12,28 @@
 </head>
 <body>
 
-  <div id="chartdiv" style="height:400px;width:800px; "></div>
-  <div class="row">
-    <div class="large-1 columns"></div>
-    <div class="large-9 columns">
-      <%= yield %>
+    <div id="nav">
+        <%= if current_user %>
+            <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+            <%= link_to "Logout", :logout, method: :post %>
+        <% else %>
+            <%= link_to "Register", new_user_path %>
+            <%= link_to "Login", :login %>
+        <% end %>
     </div>
-    <div class="large-2 columns"></div>
-  </div>
+
+    <div>
+        <p id="notice"><%= flash[:notice] %></p>
+        <p id="alert"><%= flash[:alert] %></p>
+    </div>
+
+    <div id="chartdiv" style="height:400px;width:800px; "></div>
+    <div class="row">
+        <div class="large-1 columns"></div>
+        <div class="large-9 columns">
+            <%= yield %>
+        </div>
+        <div class="large-2 columns"></div>
+    </div>
 </body>
 </html>
