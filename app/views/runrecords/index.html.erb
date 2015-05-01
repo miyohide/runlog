@@ -1,5 +1,7 @@
 <h1>Listing runrecords</h1>
 
+<div id="chartdiv" style="height:400px;width:800px; "></div>
+
 <%= form_for(@garmin_log, multipart: true) do |f| %>
   <%= f.file_field "csv_file" %>
   <%= f.button "Upload" %>
