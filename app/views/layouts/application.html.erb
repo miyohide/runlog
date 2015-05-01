@@ -10,7 +10,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= "#{controller_name}_#{action_name}" %>">
 
     <div class="contain-to-grid sticky" id="nav">
         <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">

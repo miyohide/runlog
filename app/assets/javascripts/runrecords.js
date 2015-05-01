@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(".runrecords_index").ready(function() {
   var distance_data = [];
   var pace_data = [];
 
