@@ -11,9 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414143438) do
+ActiveRecord::Schema.define(version: 20150503112958) do
+
+  create_table "abilities", force: true do |t|
+    t.string   "domain"
+    t.string   "ability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "garmin_logs", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_abilities", force: true do |t|
+    t.integer  "role_id"
+    t.integer  "ability_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150414143438) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
