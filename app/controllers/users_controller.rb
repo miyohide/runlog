@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :pundit_auth
   skip_before_filter :require_login, only: [:index, :new, :create]
 
   def index
@@ -48,5 +49,13 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :salt)
+    end
+
+    def pundit_auth
+      if current_user
+        authorize(current_user)
+      else
+        authorize(User.new)
+      end
     end
 end
