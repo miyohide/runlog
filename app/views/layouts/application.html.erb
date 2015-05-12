@@ -40,8 +40,12 @@
     </div>
 
     <div>
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
+      <% if flash[:notice] %>
+        <p id="notice" class="alert-box success"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p id="alert" class="alert-box alert"><%= flash[:alert] %></p>
+      <% end %>
     </div>
 
     <div class="row">
