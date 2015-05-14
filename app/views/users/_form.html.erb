@@ -11,19 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :email do %>
+        Email
+        <%= f.text_field :email %>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :password do %>
+        Password
+        <%= f.password_field :password %>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :password_confirmation do %>
+        Password Confirmatin
+        <%= f.password_field :password_confirmation %>
+      <% end %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>
