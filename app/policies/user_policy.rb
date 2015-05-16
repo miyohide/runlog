@@ -18,7 +18,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin? or can? "create"
+    if user.nil?
+      false
+    else
+      user.admin? or can? "create"
+    end
   end
 
   def new?
