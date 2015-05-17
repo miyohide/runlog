@@ -2,7 +2,7 @@
 
 <p>
   <strong>Runned at:</strong>
-  <%= @runrecord.runned_at %>
+  <%= I18n.localize(@runrecord.runned_at.utc_to_ja) %>
 </p>
 
 <p>
