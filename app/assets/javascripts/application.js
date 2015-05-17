@@ -21,5 +21,6 @@
 //= require jqplot.canvasAxisTickRenderer.min
 //= require jqplot.categoryAxisRenderer.min
 //= require jqplot.barRenderer.min
+//= require jquery.datetimepicker
 
 $(function(){ $(document).foundation(); });
