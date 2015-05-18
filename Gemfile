@@ -18,6 +18,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'forgery'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do
