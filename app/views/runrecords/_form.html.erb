@@ -11,19 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :runned_at %><br>
-    <%= f.datetime_select :runned_at %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :runned_at do %>
+        Runned at
+        <%= f.text_field :runned_at, class: "datetimepicker", value: I18n.localize(@runrecord.runned_at.utc_to_ja) %>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :distance %><br>
-    <%= f.text_field :distance %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :distance do %>
+        Distance(km)
+        <%= f.text_field :distance %>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :run_time %><br>
-    <%= f.text_field :run_time %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :run_time do %>
+        Run time
+        <%= f.text_field :run_time %>
+      <% end %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>
