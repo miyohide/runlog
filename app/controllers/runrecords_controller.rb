@@ -29,7 +29,8 @@ class RunrecordsController < ApplicationController
   end
 
   def update
-    if @runrecord.update(runrecord_params)
+    runned_at_utc = Time.parse(runrecord_params[:runned_at]).utc
+    if @runrecord.update(runrecord_params.update({runned_at: runned_at_utc}))
       redirect_to @runrecord, notice: 'Runrecord was successfully updated.'
     else
       render :edit
