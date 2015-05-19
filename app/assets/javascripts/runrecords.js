@@ -45,3 +45,11 @@ $(".runrecords_index").ready(function() {
   });
 });
 
+$(".runrecords_edit").ready(function() {
+  $('.datetimepicker').datetimepicker({
+    format: 'Y-m-d H:i',
+    lang: 'ja'
+  });
+});
+
+
