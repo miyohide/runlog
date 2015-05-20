@@ -20,6 +20,11 @@
             <section class="top-bar-section">
                 <ul class="right">
                   <% if current_user %>
+                    <% if user_create? %>
+                      <li>
+                        <%= link_to "Register", new_user_path %>
+                      </li>
+                    <% end %>
                     <% if user_edit? %>
                       <li>
                         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
@@ -29,11 +34,6 @@
                       <%= link_to "Logout", :logout, method: :post %>
                     </li>
                   <% else %>
-                    <% if user_create? %>
-                      <li>
-                        <%= link_to "Register", new_user_path %>
-                      </li>
-                    <% end %>
                     <li>
                       <%= link_to "Login", :login %>
                     </li>
