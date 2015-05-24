@@ -15,7 +15,7 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', require: false
   gem 'shoulda-matchers'
   gem 'forgery'
   gem 'pry-rails'
