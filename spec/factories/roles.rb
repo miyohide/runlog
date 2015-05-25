@@ -27,6 +27,22 @@ FactoryGirl.define do
     end
   end
 
+  factory :runrecord_role, class: Role do
+    name "Runrecord権限"
+
+    after(:create) do |role|
+      create(:roles_ability, role_id: role.id, ability_id: create(:runrecord_index).id)
+      create(:roles_ability, role_id: role.id, ability_id: create(:runrecord_show).id)
+      create(:roles_ability, role_id: role.id, ability_id: create(:runrecord_create).id)
+      create(:roles_ability, role_id: role.id, ability_id: create(:runrecord_update).id)
+      create(:roles_ability, role_id: role.id, ability_id: create(:runrecord_destroy).id)
+    end
+
+    to_create do |instance|
+      instance.save validate: false
+    end
+  end
+
   factory :role_role, class: Role do
     name "Role権限"
 

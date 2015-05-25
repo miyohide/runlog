@@ -13,6 +13,13 @@ FactoryGirl.define do
     password_confirmation { "hogehoge" }
   end
 
+  factory :has_runrecord_authority, class: User do
+    role_id  { create(:user_role).id }
+    email    { Forgery(:email).address }
+    password { "hogehoge" }
+    password_confirmation { "hogehoge" }
+  end
+
   factory :has_role_authority, class: User do
     role_id  { create(:role_role).id }
     email    { Forgery(:email).address }
