@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
 
   belongs_to :role
 
+  # Virtual Attribute。画面のチェックを行う
+  attr_writer :admin_ability
+
+  before_validation :ability_set
+
   def ability
     Ability.ability_hash self.role.roles_abilities.map(&:ability_id)
   end
@@ -16,8 +21,20 @@ class User < ActiveRecord::Base
     ability.include? "admin"
   end
 
+  def admin_ability
+    self.admin?
+  end
+
   scope :except_admin, -> {
     joins(:role).where.not(roles: { name: "administrator"} )
   }
+
+  def ability_set
+    if @admin_ability
+      self.role_id = Role.where(name: "administrator").first.id
+    else
+      self.role_id = Role.where(name: "Runrecord権限").first.id
+    end
+  end
 end
 
