@@ -21,11 +21,8 @@ FactoryGirl.create(:runrecord_role)
 # TODO テストユーザの作成
 User.create(email: "admin@example.com",
             password: "hogehoge", password_confirmation: "hogehoge",
-            role_id: Role.where(name: "administrator").first.id)
-User.create(email: "user@example.com",
-            password: "hogehoge", password_confirmation: "hogehoge",
-            role_id: Role.where(name: "User権限").first.id)
+            admin_ability: true)
 User.create(email: "runrecord@example.com",
             password: "hogehoge", password_confirmation: "hogehoge",
-            role_id: Role.where(name: "Runrecord権限").first.id)
+            admin_ability: false)
 
