@@ -22,7 +22,11 @@ class User < ActiveRecord::Base
   end
 
   def admin_ability
-    self.admin?
+    if self.new_record?
+      false
+    else
+      self.admin?
+    end
   end
 
   scope :except_admin, -> {
