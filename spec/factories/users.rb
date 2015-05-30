@@ -1,36 +1,35 @@
 FactoryGirl.define do
   factory :administrator, class: User do
-    role_id  { create(:admin_role).id }
-    email    { Forgery(:email).address }
-    password { "hogehoge" }
-    password_confirmation { "hogehoge" }
-  end
+    before(:create) { create(:admin_role) }
 
-  factory :has_user_authority, class: User do
-    role_id  { create(:user_role).id }
+    admin_ability true
     email    { Forgery(:email).address }
     password { "hogehoge" }
     password_confirmation { "hogehoge" }
   end
 
   factory :has_runrecord_authority, class: User do
-    role_id  { create(:user_role).id }
+    before(:create) { create(:runrecord_role) }
+
+    admin_ability false
     email    { Forgery(:email).address }
     password { "hogehoge" }
     password_confirmation { "hogehoge" }
   end
 
-  factory :has_role_authority, class: User do
-    role_id  { create(:role_role).id }
-    email    { Forgery(:email).address }
-    password { "hogehoge" }
-    password_confirmation { "hogehoge" }
-  end
-
-  factory :has_only_view_authority, class: User do
-    role_id  { create(:only_view_role).id }
-    email    { Forgery(:email).address }
-    password { "hogehoge" }
-    password_confirmation { "hogehoge" }
-  end
+  # factory :has_role_authority, class: User do
+  #   before(:create)  { create(:role_role) }
+  #   admin_ability false
+  #   email    { Forgery(:email).address }
+  #   password { "hogehoge" }
+  #   password_confirmation { "hogehoge" }
+  # end
+  #
+  # factory :has_only_view_authority, class: User do
+  #   before(:create)  { create(:only_view_role) }
+  #   admin_ability false
+  #   email    { Forgery(:email).address }
+  #   password { "hogehoge" }
+  #   password_confirmation { "hogehoge" }
+  # end
 end
