@@ -34,7 +34,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? or can? "update"
+    if user == record
+      true
+    else
+      user.admin? or can? "update"
+    end
   end
 
   def edit?
