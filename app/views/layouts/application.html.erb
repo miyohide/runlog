@@ -19,25 +19,28 @@
             </ul>
             <section class="top-bar-section">
                 <ul class="right">
-                  <% if current_user %>
-                    <% if user_create? %>
-                      <li>
-                        <%= link_to "Register", new_user_path %>
-                      </li>
+                    <% if current_user %>
+                        <li>
+                            <%= current_user.email %>
+                        </li>
+                        <% if user_create? %>
+                            <li>
+                                <%= link_to "Register", new_user_path %>
+                            </li>
+                        <% end %>
+                        <% if user_edit? %>
+                            <li>
+                                <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+                            </li>
+                        <% end %>
+                        <li>
+                            <%= link_to "Logout", :logout, method: :post %>
+                        </li>
+                    <% else %>
+                        <li>
+                            <%= link_to "Login", :login %>
+                        </li>
                     <% end %>
-                    <% if user_edit? %>
-                      <li>
-                        <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-                      </li>
-                    <% end %>
-                    <li>
-                      <%= link_to "Logout", :logout, method: :post %>
-                    </li>
-                  <% else %>
-                    <li>
-                      <%= link_to "Login", :login %>
-                    </li>
-                  <% end %>
                 </ul>
             </section>
         </nav>
