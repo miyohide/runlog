@@ -15,13 +15,13 @@
     <div class="contain-to-grid sticky" id="nav">
         <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
             <ul class="title-area">
-                <li class="name">RunLog</li>
+                <li class="name"><a href="#">RunLog</a></li>
             </ul>
             <section class="top-bar-section">
                 <ul class="right">
                     <% if current_user %>
                         <li>
-                            <%= current_user.email %>
+                            <a href="#"><%= current_user.email %></a>
                         </li>
                         <% if user_create? %>
                             <li>
