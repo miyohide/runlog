@@ -13,20 +13,16 @@ class UserPolicy < ApplicationPolicy
     if user.nil?
       false
     else
-      user.admin? or can? "index"
+      user.admin? || can?("index")
     end
   end
 
   def show?
-    user.admin? or can? "show"
+    user.admin? || can?("show")
   end
 
   def create?
-    if user.nil?
-      false
-    else
-      user.admin? or can? "create"
-    end
+    user.admin? || can?("create")
   end
 
   def new?
@@ -34,11 +30,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    if user == record
-      true
-    else
-      user.admin? or can? "update"
-    end
+    user == record || user.admin? || can?("update")
   end
 
   def edit?
@@ -46,6 +38,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? or can? "destroy"
+    user.admin? || can?("destroy")
   end
 end
