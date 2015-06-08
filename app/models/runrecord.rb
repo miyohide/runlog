@@ -1,4 +1,6 @@
 class Runrecord < ActiveRecord::Base
+  belongs_to :user
+
   def pace
     pace_by_second = runtime_to_seconds / self.distance
     # second_to_minute(pace_by_second) # 一旦コメント化

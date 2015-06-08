@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, uniqueness: true
 
+
+  has_many :runrecords
   belongs_to :role
 
   # Virtual Attribute。画面のチェックを行う
