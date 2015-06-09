@@ -23,12 +23,12 @@
                         <li>
                             <a href="#"><%= current_user.email %></a>
                         </li>
-                        <% if user_create? %>
+                        <% if policy(User.new).create? %>
                             <li>
                                 <%= link_to "Register", new_user_path %>
                             </li>
                         <% end %>
-                        <% if user_edit? %>
+                        <% if policy(current_user).edit? %>
                             <li>
                                 <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
                             </li>
