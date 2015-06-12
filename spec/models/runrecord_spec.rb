@@ -56,4 +56,11 @@ RSpec.describe Runrecord, type: :model do
       end
     end
   end
+
+  describe ".started_month" do
+    let(:record) { Runrecord.new(runned_at: Time.new(2015, 3, 12)) }
+    it "return year + month" do
+      expect(record.started_month).to eq("201503")
+    end
+  end
 end
