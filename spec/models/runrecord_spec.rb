@@ -63,4 +63,25 @@ RSpec.describe Runrecord, type: :model do
       expect(record.started_month).to eq("201503")
     end
   end
+
+  describe "#distance_summary_per_month" do
+    let!(:record_1503_01) { Runrecord.create(runned_at: Time.new(2015, 3, 12),
+                                             distance: 10.4) }
+    let!(:record_1503_02) { Runrecord.create(runned_at: Time.new(2015, 3, 22),
+                                             distance:  5.4) }
+    let!(:record_1504_01) { Runrecord.create(runned_at: Time.new(2015, 4, 22),
+                                             distance:  5.4) }
+
+    subject(:distances) { Runrecord.distance_summary_per_month }
+
+    it "return Array that has Hash element" do
+      expect(distances).to be_a(Array)
+      expect(distances.first).to be_a(Hash)
+    end
+
+    it "element is correct" do
+      expect(distances).to include({ date: "201503", total_distance: 15.8 })
+      expect(distances).to include({ date: "201504", total_distance: 5.4 })
+    end
+  end
 end
