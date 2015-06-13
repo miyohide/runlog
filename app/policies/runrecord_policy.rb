@@ -42,7 +42,7 @@ class RunrecordPolicy < ApplicationPolicy
 
   private
 
-  def recordowner_is_own?(user, record)
+  def recordowner_is_own?
     user.id == record.user_id
   end
 end
