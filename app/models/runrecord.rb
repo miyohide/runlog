@@ -19,8 +19,8 @@ class Runrecord < ActiveRecord::Base
     self.runned_at.year.to_s + "%02d" % self.runned_at.month.to_s
   end
 
-  def self.distance_summary_per_month
-    self.all.group_by(&:started_month).map do |date, records|
+  def self.distance_summary_per_month(user)
+    self.where(user_id: user.id).group_by(&:started_month).map do |date, records|
       { date: date, total_distance: records.sum { |r| r.distance } }
     end
   end
