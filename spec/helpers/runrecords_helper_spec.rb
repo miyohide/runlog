@@ -1,15 +1,25 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the RunrecordsHelper. For example:
-#
-# describe RunrecordsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe RunrecordsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".distance_per_month_table" do
+    let!(:user) { FactoryGirl.create(:has_runrecord_authority) }
+    
+    let!(:record_1503_01) { Runrecord.create(runned_at: Time.new(2015, 3, 12),
+                                             distance: 10.4,
+                                             user_id: user.id) }
+    let!(:record_1503_02) { Runrecord.create(runned_at: Time.new(2015, 3, 22),
+                                             distance:  5.4,
+                                             user_id: user.id) }
+    let!(:record_1503_03) { Runrecord.create(runned_at: Time.new(2015, 3, 22),
+                                             distance:  5.4,
+                                             user_id: user.id) }
+    let!(:record_1504_01) { Runrecord.create(runned_at: Time.new(2015, 4, 22),
+                                             distance:  5.4,
+                                             user_id: user.id) }
+
+    it "return HTML table" do
+      expect(helper.distance_per_month_table(user)).to eq("<table><tbody><tr><td>201503</td><td>21.20</td></tr><tr><td>201504</td><td>5.40</td></tr></tbody></table>")
+    end
+
+  end
 end
