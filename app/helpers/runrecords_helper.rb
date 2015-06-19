@@ -6,5 +6,6 @@ module RunrecordsHelper
     end
     rval += "</tbody></table>"
 
+    rval.html_safe
   end
 end
