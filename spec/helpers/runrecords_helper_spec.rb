@@ -18,7 +18,7 @@ RSpec.describe RunrecordsHelper, type: :helper do
                                              user_id: user.id) }
 
     it "return HTML table" do
-      expect(helper.distance_per_month_table(user)).to eq("<table><tbody><tr><td>201503</td><td>21.20</td></tr><tr><td>201504</td><td>5.40</td></tr></tbody></table>")
+      expect(helper.distance_per_month_table(user)).to eq("<table><thead><tr><th>日付</th><th>距離</th></tr></thead><tbody><tr><td>201503</td><td>21.20</td></tr><tr><td>201504</td><td>5.40</td></tr></tbody></table>")
     end
 
   end
