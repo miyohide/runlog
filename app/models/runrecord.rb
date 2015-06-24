@@ -25,6 +25,12 @@ class Runrecord < ActiveRecord::Base
     end
   end
 
+  def self.recent_distance_summary_per_month(user)
+    self.where(user_id: user.id).where("runned_at >= ?", Time.now.end_of_month - 1.year).group_by(&:started_month).map do |date, records|
+      { date: date, total_distance: records.sum { |r| r.distance } }
+    end
+  end
+
   def self.save_logs(logs)
     ActiveRecord::Base.transaction do
       logs.each do |log|
