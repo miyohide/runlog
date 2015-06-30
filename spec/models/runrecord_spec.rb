@@ -91,4 +91,33 @@ RSpec.describe Runrecord, type: :model do
       expect(distances).to include({ date: "201504", total_distance: 5.4 })
     end
   end
+
+  describe "#recent_distance_summary_per_month" do
+    let!(:user) { FactoryGirl.create(:has_runrecord_authority) }
+    let!(:now_time) { Time.now }
+    let!(:record1) { Runrecord.create(runned_at: now_time - 1.month,
+                                      distance: 10.4,
+                                      user_id: user.id) }
+    let!(:record2) { Runrecord.create(runned_at: now_time - 1.month,
+                                      distance:  5.4,
+                                      user_id: user.id) }
+    let!(:record3) { Runrecord.create(runned_at: now_time - 11.month,
+                                      distance:  5.5,
+                                      user_id: user.id) }
+    let!(:out_record) { Runrecord.create(runned_at: now_time - 1.year - 1.day,
+                                         distance:  5.6,
+                                         user_id: user.id) }
+
+    subject(:distances) { Runrecord.recent_distance_summary_per_month(user) }
+
+    it "return Array that has Hash element" do
+      expect(distances).to be_a(Array)
+      expect(distances.first).to be_a(Hash)
+    end
+
+    it "element is correct" do
+      expect(distances).to include({ date: (now_time - 1.month).strftime("%Y%m"), total_distance: 15.8 })
+      expect(distances).to include({ date: (now_time - 11.month).strftime("%Y%m"), total_distance: 5.5 })
+    end
+  end
 end
