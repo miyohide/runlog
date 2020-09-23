@@ -1,0 +1,2 @@
+class Runlog < ApplicationRecord
+end

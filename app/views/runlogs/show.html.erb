@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Run date:</strong>
+  <%= @runlog.run_date %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @runlog.distance %>
+</p>
+
+<%= link_to 'Edit', edit_runlog_path(@runlog) %> |
+<%= link_to 'Back', runlogs_path %>

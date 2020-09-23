@@ -1,0 +1,27 @@
+<%= form_with(model: runlog, local: true) do |form| %>
+  <% if runlog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(runlog.errors.count, "error") %> prohibited this runlog from being saved:</h2>
+
+      <ul>
+        <% runlog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :run_date %>
+    <%= form.datetime_select :run_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :distance %>
+    <%= form.text_field :distance %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
