@@ -10,5 +10,10 @@
   <%= @runlog.distance %>
 </p>
 
+<p>
+  <strong>Total time:</strong>
+  <%= @runlog.total_time %>
+</p>
+
 <%= link_to 'Edit', edit_runlog_path(@runlog) %> |
 <%= link_to 'Back', runlogs_path %>
