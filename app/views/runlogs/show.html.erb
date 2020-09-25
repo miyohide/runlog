@@ -12,7 +12,7 @@
 
 <p>
   <strong>Total time:</strong>
-  <%= @runlog.total_time %>
+  <%= Time.at(@runlog.total_time).utc.strftime('%X') %>
 </p>
 
 <%= link_to 'Edit', edit_runlog_path(@runlog) %> |
