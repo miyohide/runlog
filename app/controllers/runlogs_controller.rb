@@ -69,6 +69,6 @@ class RunlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def runlog_params
-      params.require(:runlog).permit(:run_date, :distance)
+      params.require(:runlog).permit(:run_date, :distance, :total_time)
     end
 end
