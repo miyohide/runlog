@@ -12,16 +12,4 @@ class Runlog < ApplicationRecord
       self.total_time_minutes * 60 +
       self.total_time_seconds
   end
-
-  def total_time_hours
-    Time.at(self.total_time).utc.strftime('%H').to_i
-  end
-
-  def total_time_minutes
-    Time.at(self.total_time).utc.strftime('%M').to_i
-  end
-
-  def total_time_seconds
-    Time.at(self.total_time).utc.strftime('%S').to_i
-  end
 end
