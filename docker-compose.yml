@@ -12,6 +12,7 @@ services:
     volumes:
       - .:/myapp
       - bundle:/usr/local/bundle
+      - node_modules:/myapp/node_modules
     ports:
       - "3000:3000"
     depends_on:
@@ -23,3 +24,4 @@ services:
       DB_PASSWORD: password
 volumes:
   bundle:
+  node_modules:
