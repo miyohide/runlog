@@ -7,6 +7,7 @@
     <tr>
       <th>Run date</th>
       <th>Distance</th>
+      <th>Total time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= runlog.run_date %></td>
         <td><%= runlog.distance %></td>
+        <td><%= Time.at(runlog.total_time).utc.strftime('%X') %></td>
         <td><%= link_to 'Show', runlog %></td>
         <td><%= link_to 'Edit', edit_runlog_path(runlog) %></td>
         <td><%= link_to 'Destroy', runlog, method: :delete, data: { confirm: 'Are you sure?' } %></td>

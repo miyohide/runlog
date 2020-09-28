@@ -21,6 +21,21 @@
     <%= form.text_field :distance %>
   </div>
 
+  <div class="field">
+    <%= form.label :total_time_hours %>
+    <%= form.text_field :total_time_hours, value: total_time_hours_value(form.object.total_time) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_time_minutes %>
+    <%= form.text_field :total_time_minutes, value: total_time_minutes_value(form.object.total_time) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_time_seconds %>
+    <%= form.text_field :total_time_seconds, value: total_time_seconds_value(form.object.total_time) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
