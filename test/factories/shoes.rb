@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :shoe do
-    name { "MyString" }
+    name { 'スペシャルシューズ' }
   end
 end
