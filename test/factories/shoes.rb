@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :shoe do
-    name { 'スペシャルシューズ' }
+    name { Gimei.name.kanji }
   end
 end
