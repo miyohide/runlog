@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ShoesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @shoe = shoes(:one)
+    @shoe = FactoryBot.create(:shoe)
   end
 
   test "should get index" do
