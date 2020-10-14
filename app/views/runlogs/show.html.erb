@@ -17,11 +17,7 @@
 
 <p>
   <strong>Shoes:</strong>
-  <% if @runlog.shoe.present? %>
-    <%= @runlog.shoe.name %>
-  <% else %>
-    未登録
-  <% end %>
+  <%= shoe_name(@runlog) %>
 </p>
 
 <%= link_to 'Edit', edit_runlog_path(@runlog) %> |
