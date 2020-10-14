@@ -17,7 +17,7 @@ class ShoesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create shoe" do
     assert_difference('Shoe.count') do
-      post shoes_url, params: { shoe: { name: @shoe.name } }
+      post shoes_url, params: { shoe: { name: Gimei.new.name } }
     end
 
     assert_redirected_to shoe_url(Shoe.last)
