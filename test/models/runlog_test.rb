@@ -11,7 +11,4 @@ class RunlogTest < ActiveSupport::TestCase
     )
     assert_equal 3_723, runlog.total_time
   end
-  # test "the truth" do
-  #   assert true
-  # end
 end
