@@ -15,5 +15,10 @@
   <%= Time.at(@runlog.total_time).utc.strftime('%X') %>
 </p>
 
+<p>
+  <strong>Shoes:</strong>
+  <%= shoe_name(@runlog) %>
+</p>
+
 <%= link_to 'Edit', edit_runlog_path(@runlog) %> |
 <%= link_to 'Back', runlogs_path %>

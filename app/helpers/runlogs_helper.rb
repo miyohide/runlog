@@ -22,4 +22,12 @@ module RunlogsHelper
       Time.at(total_time).utc.strftime('%S').to_i
     end
   end
+
+  def shoe_name(runlog)
+    if runlog.shoe.present?
+      runlog.shoe.name
+    else
+      '未登録'
+    end
+  end
 end
