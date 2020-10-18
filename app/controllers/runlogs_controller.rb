@@ -20,6 +20,7 @@ class RunlogsController < ApplicationController
 
   # GET /runlogs/1/edit
   def edit
+    @shoes = Shoe.all
   end
 
   # POST /runlogs
