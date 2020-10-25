@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_124631) do
+ActiveRecord::Schema.define(version: 2020_10_23_122129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_10_21_124631) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total_time", null: false
     t.bigint "shoe_id"
+    t.bigint "course_id", null: false
+    t.index ["course_id"], name: "index_runlogs_on_course_id"
     t.index ["shoe_id"], name: "index_runlogs_on_shoe_id"
   end
 
@@ -39,5 +41,6 @@ ActiveRecord::Schema.define(version: 2020_10_21_124631) do
     t.index ["name"], name: "index_shoes_on_name", unique: true
   end
 
+  add_foreign_key "runlogs", "courses"
   add_foreign_key "runlogs", "shoes"
 end
