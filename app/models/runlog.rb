@@ -4,6 +4,7 @@ class Runlog < ApplicationRecord
   attribute :total_time_seconds, :integer
 
   belongs_to :shoe
+  belongs_to :course
 
   validates :run_date, presence: true
   validates :distance, presence: true, numericality: { greater_than: 0.0 }
