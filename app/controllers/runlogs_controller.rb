@@ -16,11 +16,13 @@ class RunlogsController < ApplicationController
   def new
     @runlog = Runlog.new
     @shoes = Shoe.all
+    @courses = Course.all
   end
 
   # GET /runlogs/1/edit
   def edit
     @shoes = Shoe.all
+    @courses = Course.all
   end
 
   # POST /runlogs
@@ -71,6 +73,6 @@ class RunlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def runlog_params
-      params.require(:runlog).permit(:run_date, :distance, :total_time_hours, :total_time_minutes, :total_time_seconds, :shoe_id)
+      params.require(:runlog).permit(:run_date, :distance, :total_time_hours, :total_time_minutes, :total_time_seconds, :shoe_id, :course_id)
     end
 end
