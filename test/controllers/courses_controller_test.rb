@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CoursesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @course = courses(:one)
+    @course = FactoryBot.create(:course)
   end
 
   test "should get index" do
