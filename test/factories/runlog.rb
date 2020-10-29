@@ -6,8 +6,9 @@ FactoryBot.define do
     total_time_minutes { 2 }
     total_time_seconds { 3 }
 
-    trait :with_shoe do
+    trait :with_shoe_and_course do
       association :shoe
+      association :course
     end
   end
 end

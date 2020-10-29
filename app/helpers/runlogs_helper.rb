@@ -30,4 +30,12 @@ module RunlogsHelper
       '未登録'
     end
   end
+
+  def course_name(runlog)
+    if runlog.course.present?
+      runlog.course.name
+    else
+      '未登録'
+    end
+  end
 end
