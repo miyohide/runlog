@@ -14,7 +14,7 @@ class RunlogsHelperTest < ActionView::TestCase
   end
 
   test "シューズが登録されている場合、shoe_nameは名前を返す" do
-    runlog = FactoryBot.create(:runlog, :with_shoe)
+    runlog = FactoryBot.create(:runlog, :with_shoe_and_course)
     assert_equal runlog.shoe.name, shoe_name(runlog)
   end
 end
