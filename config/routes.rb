@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'runlogs#index'
   resources :courses
   resources :shoes
   resources :runlogs
