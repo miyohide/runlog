@@ -14,5 +14,4 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
     super
   end
-  #WebMock.allow_net_connect!
 end
