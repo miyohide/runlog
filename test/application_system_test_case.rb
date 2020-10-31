@@ -9,6 +9,10 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     url: ENV.fetch('SELENIUM_REMOTE_URL'),
     desired_capabilities: :chrome
   }
-  host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
-  WebMock.allow_net_connect!
+
+  def setup
+    host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    super
+  end
+  #WebMock.allow_net_connect!
 end
