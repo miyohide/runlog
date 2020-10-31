@@ -11,7 +11,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   }
 
   def setup
-    host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
     super
   end
 end
