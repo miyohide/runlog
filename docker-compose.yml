@@ -17,6 +17,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - webdriver_chrome
     environment:
       DB_HOST: db
       DB_PORT: 5432
