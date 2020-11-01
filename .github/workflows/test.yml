@@ -7,6 +7,7 @@ env:
   DB_HOST: localhost
   DB_USER: rails_app
   DB_PASSWORD: rails_app
+  SELENIUM_REMOTE_URL: http://webdriver_chrome:4444/wd/hub
 
 jobs:
   test:
@@ -25,6 +26,11 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+      webdriver_chrome:
+        image: selenium/standalone-chrome-debug
+        ports:
+          - 4444:4444
+          - 5900:5900
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
@@ -49,3 +55,5 @@ jobs:
       run: bin/rails db:migrate
     - name: Run tests
       run: bundle exec rake
+    - name: Run System test
+      run : bin/rails test:system
