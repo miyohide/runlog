@@ -1,4 +1,4 @@
-<%= form_with(model: runlog, local: true) do |form| %>
+<%= form_with(model: runlog, local: true, class: 'uk-form-horizontal') do |form| %>
   <% if runlog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(runlog.errors.count, "error") %> prohibited this runlog from being saved:</h2>
@@ -17,34 +17,46 @@
   </div>
 
   <div class="field">
-    <%= form.label :distance %>
-    <%= form.text_field :distance %>
+    <%= form.label :distance, class: 'uk-form-label' %>
+    <div class='uk-form-controls'>
+      <%= form.text_field :distance, class: 'uk-input' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :total_time_hours %>
-    <%= form.text_field :total_time_hours, value: total_time_hours_value(form.object.total_time) %>
+    <%= form.label :total_time_hours, class: 'uk-form-label' %>
+    <div class='uk-form-controls'>
+      <%= form.text_field :total_time_hours, value: total_time_hours_value(form.object.total_time), class: 'uk-input' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :total_time_minutes %>
-    <%= form.text_field :total_time_minutes, value: total_time_minutes_value(form.object.total_time) %>
+    <%= form.label :total_time_minutes, class: 'uk-form-label' %>
+    <div class='uk-form-controls'>
+      <%= form.text_field :total_time_minutes, value: total_time_minutes_value(form.object.total_time), class: 'uk-input' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :total_time_seconds %>
-    <%= form.text_field :total_time_seconds, value: total_time_seconds_value(form.object.total_time) %>
+    <%= form.label :total_time_seconds, class: 'uk-form-label' %>
+    <div class='uk-form-controls'>
+      <%= form.text_field :total_time_seconds, value: total_time_seconds_value(form.object.total_time), class: 'uk-input' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.collection_select :shoe_id, @shoes, :id, :name %>
+    <div class='uk-form-controls'>
+      <%= form.collection_select :shoe_id, @shoes, :id, :name, {}, class: 'uk-select' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.collection_select :course_id, @courses, :id, :name %>
+    <div class='uk-form-controls'>
+      <%= form.collection_select :course_id, @courses, :id, :name, {}, class: 'uk-select' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'uk-button uk-button-primary' %>
   </div>
 <% end %>
