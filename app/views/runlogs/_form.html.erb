@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :run_date %>
-    <%= form.datetime_select :run_date %>
+  <div class="field uk-margin">
+    <%= form.label :run_date, class: 'uk-form-label' %>
+    <div class='uk-form-controls'>
+      <%= form.datetime_select :run_date, {}, class: 'uk-select datetime-inline' %>
+    </div>
   </div>
 
   <div class="field uk-margin">
