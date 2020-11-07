@@ -1,24 +1,5 @@
-# README
+# Railsアプリのデフォルト設定からの変更
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- config/environments/development.rbにおける`config.file_watcher`の値を変更
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+macOSにおいてDocker Composeを使った開発において、デフォルト値ではファイルの変更をうまく検出されないため、ここの値を`ActiveSupport::FileUpdateChecker`に変更。
