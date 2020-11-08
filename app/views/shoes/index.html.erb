@@ -2,7 +2,7 @@
 
 <h1>Shoes</h1>
 
-<table>
+<table class="uk-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,9 +14,9 @@
     <% @shoes.each do |shoe| %>
       <tr>
         <td><%= shoe.name %></td>
-        <td><%= link_to 'Show', shoe %></td>
-        <td><%= link_to 'Edit', edit_shoe_path(shoe) %></td>
-        <td><%= link_to 'Destroy', shoe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', shoe, class: 'uk-button uk-button-default' %></td>
+        <td><%= link_to 'Edit', edit_shoe_path(shoe), class: 'uk-button uk-button-default' %></td>
+        <td><%= link_to 'Destroy', shoe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Shoe', new_shoe_path %>
+<%= link_to 'New Shoe', new_shoe_path, class: 'uk-button uk-button-primary' %>
