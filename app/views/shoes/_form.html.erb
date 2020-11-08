@@ -1,4 +1,4 @@
-<%= form_with(model: shoe, local: true) do |form| %>
+<%= form_with(model: shoe, local: true, class: 'uk-form-horizontal') do |form| %>
   <% if shoe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
@@ -11,12 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field uk-margin">
+    <%= form.label :name, class: 'uk-form-label' %>
+    <div class='uk-form-controls'>
+      <%= form.text_field :name, class: 'uk-input' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions uk-margin">
+    <%= form.submit class: 'uk-button uk-button-primary' %>
   </div>
 <% end %>
