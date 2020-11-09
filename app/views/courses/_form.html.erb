@@ -11,10 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field uk-margin">
-    <%= form.label :name, class: 'uk-form-label' %>
-    <div class='uk-form-controls'>
-      <%= form.text_field :name, class: 'uk-input' %>
+  <div class="uk-grid">
+    <div class="uk-width-1-3">
+      <div class="field uk-margin">
+        <%= form.label :name, class: 'uk-form-label' %>
+        <div class='uk-form-controls'>
+          <%= form.text_field :name, class: 'uk-input' %>
+        </div>
+      </div>
     </div>
   </div>
 
