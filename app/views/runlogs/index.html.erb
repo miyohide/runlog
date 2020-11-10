@@ -2,7 +2,7 @@
 
 <h1>Runlogs</h1>
 
-<table>
+<table class="uk-table">
   <thead>
     <tr>
       <th>Run date</th>
@@ -18,9 +18,9 @@
         <td><%= runlog.run_date %></td>
         <td><%= runlog.distance %></td>
         <td><%= Time.at(runlog.total_time).utc.strftime('%X') %></td>
-        <td><%= link_to 'Show', runlog %></td>
-        <td><%= link_to 'Edit', edit_runlog_path(runlog) %></td>
-        <td><%= link_to 'Destroy', runlog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', runlog, class: 'uk-button uk-button-default' %></td>
+        <td><%= link_to 'Edit', edit_runlog_path(runlog), class: 'uk-button uk-button-default' %></td>
+        <td><%= link_to 'Destroy', runlog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Runlog', new_runlog_path %>
+<%= link_to 'New Runlog', new_runlog_path, class: 'uk-button uk-button-primary' %>

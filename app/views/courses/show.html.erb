@@ -5,5 +5,5 @@
   <%= @course.name %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Edit', edit_course_path(@course), class: 'uk-button uk-button-primary' %> |
+<%= link_to 'Back', courses_path, class: 'uk-button uk-button-default' %>
