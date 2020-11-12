@@ -6,6 +6,8 @@ class Runlog < ApplicationRecord
   belongs_to :shoe
   belongs_to :course
 
+  has_many :runlog_details
+
   validates :run_date, presence: true
   validates :distance, presence: true, numericality: { greater_than: 0.0 }
 
