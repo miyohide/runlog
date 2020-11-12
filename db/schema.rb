@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_122129) do
+ActiveRecord::Schema.define(version: 2020_11_12_121156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_10_23_122129) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_courses_on_name", unique: true
+  end
+
+  create_table "runlog_details", force: :cascade do |t|
+    t.bigint "runlog_id", null: false
+    t.decimal "distance", null: false
+    t.integer "elapsedtime", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["runlog_id"], name: "index_runlog_details_on_runlog_id"
   end
 
   create_table "runlogs", force: :cascade do |t|
@@ -41,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_122129) do
     t.index ["name"], name: "index_shoes_on_name", unique: true
   end
 
+  add_foreign_key "runlog_details", "runlogs"
   add_foreign_key "runlogs", "courses"
   add_foreign_key "runlogs", "shoes"
 end
