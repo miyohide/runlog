@@ -17,4 +17,8 @@ class Runlog < ApplicationRecord
       self.total_time_minutes * 60 +
       self.total_time_seconds
   end
+
+  def import_lap_data(lap_info)
+    self.runlog_details.create(lap_info)
+  end
 end
