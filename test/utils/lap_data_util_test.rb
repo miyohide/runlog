@@ -13,4 +13,8 @@ EOS
     assert_equal 0.50, rval[1][:distance]
     assert_equal 160, rval[1][:elapsedtime]
   end
+
+  test "time string to seconds" do
+    assert_equal 183, LapDataUtil.TimeStr2Seconds("3:03.4")
+  end
 end
