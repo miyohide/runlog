@@ -19,6 +19,6 @@ class Runlog < ApplicationRecord
   end
 
   def import_lap_data(lap_info)
-    self.runlog_details.create(lap_info)
+    self.runlog_details.build(lap_info)
   end
 end
