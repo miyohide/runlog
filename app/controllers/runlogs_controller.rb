@@ -31,7 +31,7 @@ class RunlogsController < ApplicationController
     @runlog = Runlog.new(runlog_params)
 
     if params[:lap_data_csv].present?
-      contents = params[:lap_data_csv].read
+      contents = params[:lap_data_csv].read.force_encoding('UTF-8')
       @runlog.import_lap_data(LapDataUtil.CSV2LapData(contents))
     end
 
