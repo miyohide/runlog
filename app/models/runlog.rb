@@ -6,6 +6,8 @@ class Runlog < ApplicationRecord
   belongs_to :shoe
   belongs_to :course
 
+  has_many :runlog_details
+
   validates :run_date, presence: true
   validates :distance, presence: true, numericality: { greater_than: 0.0 }
 
@@ -14,5 +16,9 @@ class Runlog < ApplicationRecord
       self.total_time_hours * 60 * 60 +
       self.total_time_minutes * 60 +
       self.total_time_seconds
+  end
+
+  def import_lap_data(lap_info)
+    self.runlog_details.build(lap_info)
   end
 end

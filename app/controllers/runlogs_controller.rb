@@ -30,6 +30,11 @@ class RunlogsController < ApplicationController
   def create
     @runlog = Runlog.new(runlog_params)
 
+    if params[:lap_data_csv].present?
+      contents = params[:lap_data_csv].read.force_encoding('UTF-8')
+      @runlog.import_lap_data(LapDataUtil.CSV2LapData(contents))
+    end
+
     respond_to do |format|
       if @runlog.save
         format.html { redirect_to @runlog, notice: 'Runlog was successfully created.' }

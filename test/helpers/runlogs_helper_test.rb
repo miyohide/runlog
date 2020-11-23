@@ -17,4 +17,10 @@ class RunlogsHelperTest < ActionView::TestCase
     runlog = FactoryBot.create(:runlog, :with_shoe_and_course)
     assert_equal runlog.shoe.name, shoe_name(runlog)
   end
+
+  test "seconds2mmssで秒から分:秒の文字列に変換すること" do
+    assert_equal "00:12", seconds2mmss(12)
+    assert_equal "01:12", seconds2mmss(72)
+    assert_equal "02:31", seconds2mmss(151)
+  end
 end

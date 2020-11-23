@@ -38,4 +38,10 @@ module RunlogsHelper
       '未登録'
     end
   end
+
+  # 秒を分:秒に変換する。
+  # 例：73秒 -> 01:13
+  def seconds2mmss(seconds)
+    Time.at(seconds).utc.strftime('%M:%S')
+  end
 end
