@@ -39,7 +39,7 @@
       <tr>
         <td><%= index + 1 %></td>
         <td><%= detail.distance %></td>
-        <td><%= detail.elapsedtime %></td>
+        <td><%= seconds2mmss(detail.elapsedtime) %></td>
       </tr>
     <% end %>
   </tbody>
