@@ -17,18 +17,11 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - webdriver_chrome
     environment:
       DB_HOST: db
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: password
-      SELENIUM_REMOTE_URL: http://webdriver_chrome:4444/wd/hub
-  webdriver_chrome:
-    image: selenium/standalone-chrome-debug
-    ports:
-      - 4444:4444
-      - 5900:5900
 volumes:
   bundle:
   node_modules:
