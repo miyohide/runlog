@@ -68,6 +68,12 @@
       <div class="field uk-margin">
         <div class='uk-form-controls'>
           <%= form.collection_select :shoe_id, @shoes, :id, :name, {}, class: 'uk-select' %>
+        </div>
+      </div>
+    </div>
+    <div class="uk-width-1-3">
+      <div class="field uk-margin">
+        <div class='uk-form-controls'>
           <%= link_to 'New Shoes', new_shoe_path, class: 'uk-button uk-button-default' %>
         </div>
       </div>
