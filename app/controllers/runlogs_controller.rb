@@ -40,7 +40,11 @@ class RunlogsController < ApplicationController
         format.html { redirect_to @runlog, notice: 'Runlog was successfully created.' }
         format.json { render :show, status: :created, location: @runlog }
       else
-        format.html { render :new }
+        format.html do
+          @shoes = Shoe.all
+          @courses = Course.all
+          render :new
+        end
         format.json { render json: @runlog.errors, status: :unprocessable_entity }
       end
     end
