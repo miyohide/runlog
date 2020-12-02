@@ -19,7 +19,6 @@ module Myapp
     ## ための処理を行う
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
       if html_tag =~ /<(input|textarea|select)/
-        p html_tag
         html_field = Nokogiri::HTML::DocumentFragment.parse(html_tag)
         html_field.children.add_class 'uk-form-danger'
         html_field.to_s.html_safe
