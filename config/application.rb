@@ -18,6 +18,7 @@ module Myapp
     ## エラーがある入力項目に対してuk-form-dangerクラスを追加して目立たせる
     ## ための処理を行う
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      # html_tagはエラーがある項目のタグ（<input class="xxxx" ... >）が格納されている
       if html_tag =~ /<(input|textarea|select)/
         html_field = Nokogiri::HTML::DocumentFragment.parse(html_tag)
         html_field.children.add_class 'uk-form-danger'
