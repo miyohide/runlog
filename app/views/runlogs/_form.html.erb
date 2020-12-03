@@ -1,6 +1,6 @@
 <%= form_with(model: runlog, local: true, multipart: true, class: 'uk-form-horizontal') do |form| %>
   <% if runlog.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="uk-alert-danger" uk-alert>
       <h2><%= pluralize(runlog.errors.count, "error") %> prohibited this runlog from being saved:</h2>
 
       <ul>
