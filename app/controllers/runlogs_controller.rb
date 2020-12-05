@@ -58,7 +58,11 @@ class RunlogsController < ApplicationController
         format.html { redirect_to @runlog, notice: 'Runlog was successfully updated.' }
         format.json { render :show, status: :ok, location: @runlog }
       else
-        format.html { render :edit }
+        format.html do
+          @shoes = Shoe.all
+          @courses = Course.all
+          render :edit
+        end
         format.json { render json: @runlog.errors, status: :unprocessable_entity }
       end
     end
