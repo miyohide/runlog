@@ -1,24 +1,26 @@
-# README
+# Rails Newのコマンドオプション生成
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[RailsNewIo](https://railsnew.io/)にて生成する。
 
-Things you may want to cover:
+今回は以下のコマンドを使う。
 
-* Ruby version
+```
+rails new my_app -d postgresql --skip-action-cable --skip-action-mailbox --skip-action-mailer --skip-action-text --skip-active-storage --skip-bootsnap --skip-listen --skip-spring --skip-system-test --skip-turbolinks
+```
 
-* System dependencies
+# RubyをインストールせずにDockerだけを使ってrails newを実行する
 
-* Configuration
+このブログ記事を参考にする。
 
-* Database creation
+[Rubyをインストールせず Docker だけを使ってrails newを実行する](https://sinsoku.hatenablog.com/entry/2021/04/03/001227)
 
-* Database initialization
+上のコマンドを使って、以下を実行する。
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker run --rm -v $(pwd):/app -w /app ruby:3.0.0 bash -c '\
+curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
+&& apt-get update && apt-get install -y git nodejs \
+&& npm install -g yarn \
+&& gem i --no-document rails \
+&& rails new . -d postgresql --skip-action-cable --skip-action-mailbox --skip-action-mailer --skip-action-text --skip-active-storage --skip-bootsnap --skip-listen --skip-spring --skip-system-test --skip-turbolinks'
+```
