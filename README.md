@@ -24,3 +24,11 @@ curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
 && gem i --no-document rails \
 && rails new . -d postgresql --skip-action-cable --skip-action-mailbox --skip-action-mailer --skip-action-text --skip-active-storage --skip-bootsnap --skip-listen --skip-spring --skip-system-test --skip-turbolinks'
 ```
+
+# Dockerfileを作成する
+
+このブログを参考にする。
+
+[Railsアプリの開発環境向けDockerfile + docker-compose.yml](https://sinsoku.hatenablog.com/entry/2021/03/24/100000)
+
+Chromeのインストールは今はしない（System Testはちょっと後で）。
