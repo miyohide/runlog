@@ -32,3 +32,7 @@ curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
 [Railsアプリの開発環境向けDockerfile + docker-compose.yml](https://sinsoku.hatenablog.com/entry/2021/03/24/100000)
 
 Chromeのインストールは今はしない（System Testはちょっと後で）。
+
+# docker-compose.ymlを作成する
+
+上記のブログと同じ。Redisやworkerはいったん削除。
