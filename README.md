@@ -36,3 +36,7 @@ Chromeのインストールは今はしない（System Testはちょっと後で
 # docker-compose.ymlを作成する
 
 上記のブログと同じ。Redisやworkerはいったん削除。
+
+# 本番用のDockerfileを作る
+
+とりあえず動作確認用で`Dockerfile.prd`として作成。`docker build -f Dockerfile.prd -t 名前 .`で作成する。
