@@ -27,7 +27,10 @@ services:
       WD_INSTALL_DIR: "/usr/local/bin"
       HISTFILE: "/app/log/.bash_history"
       EDITOR: "vi"
-      DATABASE_URL: "postgres://postgres:postgres@db:5432"
+      APP_DB_USERNAME: "postgres"
+      APP_DB_PASSWORD: "postgres"
+      APP_DB_HOST: "db"
+      APP_DB_PORT: "5432"
       RAILS_MASTER_KEY:
     depends_on:
       - db
