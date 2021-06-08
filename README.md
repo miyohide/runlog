@@ -40,3 +40,12 @@ Chromeのインストールは今はしない（System Testはちょっと後で
 # 本番用のDockerfileを作る
 
 とりあえず動作確認用で`Dockerfile.prd`として作成。`docker build -f Dockerfile.prd -t 名前 .`で作成する。
+
+# Railsのコマンドを実行する
+
+コンテナの中に入って、そこで`bin/rails`コマンドを叩く。
+
+```
+$ docker-compose run --rm web bash
+root@xxxxxx:/app# bin/rails g scaffold runrecord starttime:timestamp distance:float runtime:integer
+```
