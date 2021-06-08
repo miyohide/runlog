@@ -1,0 +1,32 @@
+<%= form_with(model: runrecord) do |form| %>
+  <% if runrecord.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(runrecord.errors.count, "error") %> prohibited this runrecord from being saved:</h2>
+
+      <ul>
+        <% runrecord.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :starttime %>
+    <%= form.datetime_select :starttime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :distance %>
+    <%= form.text_field :distance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :runtime %>
+    <%= form.number_field :runtime %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

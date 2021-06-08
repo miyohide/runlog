@@ -1,0 +1,2 @@
+class Runrecord < ApplicationRecord
+end
