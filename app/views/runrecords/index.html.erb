@@ -18,9 +18,9 @@
         <td><%= runrecord.starttime %></td>
         <td><%= runrecord.distance %></td>
         <td><%= runrecord.runtime %></td>
-        <td><%= link_to 'Show', runrecord %></td>
-        <td><%= link_to 'Edit', edit_runrecord_path(runrecord) %></td>
-        <td><%= link_to 'Destroy', runrecord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', runrecord, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_runrecord_path(runrecord), class: 'btn btn-secondary' %></td>
+        <td><%= link_to 'Destroy', runrecord, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Runrecord', new_runrecord_path %>
+<%= link_to 'New Runrecord', new_runrecord_path, class: 'btn btn-secondary' %>
