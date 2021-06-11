@@ -11,19 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :starttime %>
-    <%= form.datetime_select :starttime %>
+  <div class="field row mb-3">
+    <%= form.label :starttime, class: 'col-sm-2 form-label' %>
+    <%= form.datetime_select :starttime, {}, class: 'form-select', style: 'display: inline-block;width: auto;' %>
   </div>
 
-  <div class="field">
-    <%= form.label :distance %>
-    <%= form.text_field :distance %>
+  <div class="field row mb-3">
+    <%= form.label :distance, class: 'col-sm-2 form-label' %>
+    <div class="col-sm-5">
+      <%= form.text_field :distance, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :runtime %>
-    <%= form.number_field :runtime %>
+  <div class="field row mb-3">
+    <%= form.label :runtime, class: 'col-sm-2 form-label' %>
+    <div class="col-sm-5">
+      <%= form.number_field :runtime, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
