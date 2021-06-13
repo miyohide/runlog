@@ -6,5 +6,14 @@
 import Rails from "@rails/ujs"
 import "bootstrap"
 import "../stylesheets/application.scss"
+import flatpickr from "flatpickr"
+
+document.addEventListener("DOMContentLoaded", () => {
+  flatpickr(
+    ".flatpickr",
+   {
+     enableTime: true
+   })
+})
 
 Rails.start()
