@@ -24,6 +24,7 @@ services:
       APP_DB_PORT: "5432"
       RAILS_MASTER_KEY:
       RAILS_ENV: "production"
+      RAILS_SERVE_STATIC_FILES: "true"
     depends_on:
       - db
     command: ["bin/rails", "server", "-b", "0.0.0.0"]
