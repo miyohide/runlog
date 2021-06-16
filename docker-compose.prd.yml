@@ -2,36 +2,28 @@ version: "3.8"
 services:
   db:
     image: postgres:13-alpine
+    container_name: runlog_db_production
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: "postgres"
 
   web: &web
-    build: .
-    image: app:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile.prd
+    container_name: runlog_app_production
     stdin_open: true
     tty: true
-    volumes:
-      - .:/app:cached
-      - bundle:/app/vendor/bundle
-      - node_modules:/app/node_modules
-      - rails_cache:/app/tmp/cache
-      - packs:/app/public/packs
-      - packs_test:/app/public/packs-test
     tmpfs:
       - /tmp
     environment:
-      BUNDLE_PATH: "/app/vendor/bundle"
-      BOOTSNAP_CACHE_DIR: "/app/vendor/bundle"
-      WD_INSTALL_DIR: "/usr/local/bin"
-      HISTFILE: "/app/log/.bash_history"
-      EDITOR: "vi"
       APP_DB_USERNAME: "postgres"
       APP_DB_PASSWORD: "postgres"
       APP_DB_HOST: "db"
       APP_DB_PORT: "5432"
       RAILS_MASTER_KEY:
+      RAILS_ENV: "production"
     depends_on:
       - db
     command: ["bin/rails", "server", "-b", "0.0.0.0"]
@@ -42,8 +34,4 @@ services:
 
 volumes:
   postgres:
-  bundle:
-  node_modules:
-  rails_cache:
-  packs:
-  packs_test:
+    name: runlog_db_data
