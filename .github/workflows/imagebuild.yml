@@ -1,0 +1,16 @@
+name: Create Docker Image
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        IMAGE_TAG=$(ech ${{ github.ref }} | sed -e "s#/refs/tags/##g")
+        docker build -f Dockerfile.prd -t miyohide/runlog:$IMAGE_TAG .
