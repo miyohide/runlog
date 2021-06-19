@@ -12,5 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        IMAGE_TAG=$(echo ${{ github.ref }} | sed -e "s#/refs/tags/##g")
+        IMAGE_TAG=$(echo ${{ github.ref }} | sed -e 's/\/refs\/tags\///'')
+        echo $IMAGE_TAG
         docker build -f Dockerfile.prd -t miyohide/runlog:$IMAGE_TAG .
