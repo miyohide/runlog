@@ -21,6 +21,6 @@ variable "postgresql-sku-name" {
 }
 
 variable "postgresql-storage" {
-  type = string
-  default = "5120"
+  type = number
+  default = 5120
 }
