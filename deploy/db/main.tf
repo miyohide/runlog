@@ -19,32 +19,32 @@ resource "azurerm_resource_group" "rg" {
 }
 
 data "azurerm_key_vault" "keyvault" {
-  name = "keyvault_name"
-  resource_group_name = "keyvault_rg"
+  name = var.keyvault_name
+  resource_group_name = var.keyvault_resource_group
 }
 
 data "azurerm_key_vault_secret" "database-user" {
-  name = "database_user"
+  name = "app-database-user"
   key_vault_id = data.azurerm_key_vault.keyvault.id
 }
 
 data "azurerm_key_vault_secret" "database-password" {
-  name = "database_password"
+  name = "app-database-password"
   key_vault_id = data.azurerm_key_vault.keyvault.id
 }
 
 resource "azurerm_postgresql_server" "pg-server" {
-  name = "postgresql_server_name"
+  name = var.postgresql_server_name
   resource_group_name = azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location
 
   administrator_login = data.azurerm_key_vault_secret.database-user.value
   administrator_login_password = data.azurerm_key_vault_secret.database-password.value
 
-  sku_name = "B_Gen5_1"
-  version = "11"
+  sku_name = var.postgresql_sku_name
+  version = var.postgresql_version
 
-  storage_mb = 5120
+  storage_mb = var.postgresql_storage
 
   public_network_access_enabled = true
   ssl_enforcement_enabled = true
