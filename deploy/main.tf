@@ -28,33 +28,6 @@ resource "azurerm_container_registry" "acr" {
   admin_enabled            = true
 }
 
-# Create Postgresql server
-resource "azurerm_postgresql_server" "pg-server" {
-  name = "pg-miyohide-server"
-  resource_group_name = azurerm_resource_group.rg.name
-  location = azurerm_resource_group.rg.location
-
-  administrator_login = var.postgresql-admin-login
-  administrator_login_password = var.postgresql-admin-password
-
-  sku_name = var.postgresql-sku-name
-  version = var.postgresql-version
-
-  storage_mb = var.postgresql-storage
-
-  public_network_access_enabled = true
-  ssl_enforcement_enabled = true
-  ssl_minimal_tls_version_enforced = "TLS1_2"
-}
-
-resource "azurerm_postgresql_database" "pg-db" {
-  name = "app_production"
-  resource_group_name = azurerm_resource_group.rg.name
-  server_name = azurerm_postgresql_server.pg-server.name
-  charset = "utf8"
-  collation = "Japanese_Japan.932"
-}
-
 # Create App Service plan
 resource "azurerm_app_service_plan" "appplan" {
   name = "asp-miyohiderails"
