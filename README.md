@@ -63,6 +63,20 @@ $ docker-compose run --rm web bash
 root@xxxxxx:/app# bundle install
 ```
 
+# Gemの更新をしたいとき
+
+```
+$ docker-compose run --rm web bash
+root@xxxxxx:/app# bundle update
+```
+
+# JavaScriptライブラリの更新をしたいとき
+
+```
+$ docker-compose run --rm web bash
+root@xxxxxx:/app# yarn upgrade
+```
+
 # Azure Web Appsで動かす
 
 ## DNSリバインディング攻撃から保護する
