@@ -36,5 +36,6 @@ module App
     config.generators.system_tests = nil
 
     config.hosts << ".azurewebsites.net"
+    config.hosts << ".example.com"
   end
 end
