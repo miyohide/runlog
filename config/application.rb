@@ -35,7 +35,6 @@ module App
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.hosts << ".azurewebsites.net"
-    config.hosts << ".example.com"
+    # config.hosts << ".example.com"
   end
 end
