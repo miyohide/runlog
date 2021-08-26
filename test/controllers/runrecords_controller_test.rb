@@ -2,7 +2,7 @@ require "test_helper"
 
 class RunrecordsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @runrecord = runrecords(:one)
+    @runrecord = runrecords(:default)
   end
 
   test "should get index" do
