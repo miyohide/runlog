@@ -23,6 +23,14 @@ class RunrecordsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to runrecord_url(Runrecord.last)
   end
 
+  test "値が不適切な場合、新しいRunrecordが作成されないこと" do
+    assert_no_difference('Runrecord.count') do
+      post runrecords_url, params: { runrecord: { distance: -5.0, runtime: @runrecord.runtime, starttime: @runrecord.starttime } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
   test "個別のRunrecordが参照できること" do
     get runrecord_url(@runrecord)
     assert_response :success
