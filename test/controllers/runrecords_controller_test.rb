@@ -5,17 +5,17 @@ class RunrecordsControllerTest < ActionDispatch::IntegrationTest
     @runrecord = runrecords(:default)
   end
 
-  test "should get index" do
+  test "indexページにアクセスできること" do
     get runrecords_url
     assert_response :success
   end
 
-  test "should get new" do
+  test "newページにアクセスできること" do
     get new_runrecord_url
     assert_response :success
   end
 
-  test "should create runrecord" do
+  test "新しいRunrecordが作成されること" do
     assert_difference('Runrecord.count') do
       post runrecords_url, params: { runrecord: { distance: @runrecord.distance, runtime: @runrecord.runtime, starttime: @runrecord.starttime } }
     end
@@ -23,22 +23,22 @@ class RunrecordsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to runrecord_url(Runrecord.last)
   end
 
-  test "should show runrecord" do
+  test "個別のRunrecordが参照できること" do
     get runrecord_url(@runrecord)
     assert_response :success
   end
 
-  test "should get edit" do
+  test "editページにアクセスできること" do
     get edit_runrecord_url(@runrecord)
     assert_response :success
   end
 
-  test "should update runrecord" do
+  test "Runrecordを更新できること" do
     patch runrecord_url(@runrecord), params: { runrecord: { distance: @runrecord.distance, runtime: @runrecord.runtime, starttime: @runrecord.starttime } }
     assert_redirected_to runrecord_url(@runrecord)
   end
 
-  test "should destroy runrecord" do
+  test "Runrecordを削除できること" do
     assert_difference('Runrecord.count', -1) do
       delete runrecord_url(@runrecord)
     end
