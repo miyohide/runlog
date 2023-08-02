@@ -12,32 +12,31 @@ class CreateRunlogs < ActiveRecord::Migration[7.0]
       t.integer :high_pitch
       t.integer :average_pace
       t.integer :high_pace
-      t.string :total
-      t.string :lift
-      t.string :total_descent
-      t.string :average_stride_length
-      t.string :average_vertical_ratio
-      t.string :average_vertical
-      t.string :average_contact_time
+      t.integer :total_lift
+      t.integer :total_descent
+      t.decimal :average_stride_length
+      t.decimal :average_vertical_ratio
+      t.decimal :average_vertical
+      t.integer :average_contact_time
       t.string :average_gct_balance
-      t.string :average_power
-      t.string :max_power
-      t.string :grid
-      t.string :flow
-      t.string :average_swolf
-      t.string :average_stalk_rate
-      t.string :number_of_reps
+      t.integer :average_power
+      t.integer :max_power
+      t.decimal :grid
+      t.decimal :flow
+      t.integer :average_swolf
+      t.integer :average_stalk_rate
+      t.integer :number_of_reps
       t.string :dive_time
-      t.string :lowest_temp
+      t.decimal :lowest_temp
       t.string :surface_rest
       t.string :decompression
       t.string :best_lap_time
-      t.string :lap_count
-      t.string :highest_temp
-      t.string :travel_time
-      t.string :elapsed_time
-      t.string :minimum_altitude
-      t.string :maximum_altitude
+      t.integer :lap_count
+      t.decimal :highest_temp
+      t.integer :travel_time
+      t.integer :elapsed_time
+      t.integer :minimum_altitude
+      t.integer :maximum_altitude
       t.string :place
       t.string :start_time
 
