@@ -1,2 +1,2 @@
-namespace :upload_running_log do
+namespace :running_log do
 end
