@@ -4,7 +4,7 @@ namespace :running_log do
   desc 'update running log data'
   task update: :environment do
     CSV.foreach('formated_logs.csv', headers: true) { |row|
-      Runlog.create(
+      r = Runlog.new(
         running_date: row['date'],
         distance: row['distance'],
         kcal: row['kcal'],
@@ -41,6 +41,7 @@ namespace :running_log do
         place: row['place'],
         start_time: row['start time']
       )
+      r.save if r.valid?
     }
   end
 end
