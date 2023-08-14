@@ -29,7 +29,7 @@ module Api
         origins "*"
         resource "*",
           headers: :any,
-          methods: [:get]
+          methods: [:get, :post]
       end
     end
   end
