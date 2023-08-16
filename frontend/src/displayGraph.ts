@@ -21,16 +21,6 @@ const getData = async () => {
   return response;
 }
 
-
-// const getData = async () => {
-//   const response = await fetch(`${apiURL}`);
-//   if (response.ok) {
-//     return await response.json();
-//   } else {
-//     return Promise.reject(response.status);
-//   }
-// }
-
 export function displayGraph(element: HTMLCanvasElement) {
   const result = getData();
 
