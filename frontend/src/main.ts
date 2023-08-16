@@ -1,6 +1,5 @@
 import './style.css'
 import { displayGraph } from './displayGraph.ts'
-import { getData } from './getRunlog.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -11,5 +10,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
-//displayGraph(document.querySelector<HTMLCanvasElement>('#myChart')!)
-getData();
+displayGraph(document.querySelector<HTMLCanvasElement>('#myChart')!)

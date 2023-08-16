@@ -1,27 +1,47 @@
 import Chart from "chart.js/auto";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client/core";
 
-const apiURL = 'http://localhost:3000/';
+const client = new ApolloClient({
+  uri: 'http://localhost:3000/graphql',
+  cache: new InMemoryCache(),
+});
 
 const getData = async () => {
-  const response = await fetch(`${apiURL}`);
-  if (response.ok) {
-    return await response.json();
-  } else {
-    return Promise.reject(response.status);
-  }
+  const response = client.query({
+    query: gql`
+    {
+        runlogs {
+            id
+            runningDate
+            distance
+        }
+    }
+    `,
+  });
+  return response;
 }
+
+
+// const getData = async () => {
+//   const response = await fetch(`${apiURL}`);
+//   if (response.ok) {
+//     return await response.json();
+//   } else {
+//     return Promise.reject(response.status);
+//   }
+// }
 
 export function displayGraph(element: HTMLCanvasElement) {
   const result = getData();
 
   result.then((data) => {
     new Chart(element, {
-      type: 'bar',
+      type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: data.data.runlogs.map((r) => r.runningDate),
         datasets: [{
           label: '# of Votes',
-          data: data,
+          data: data.data.runlogs.map((r) => r.distance),
           borderWidth: 1
         }]
       },
