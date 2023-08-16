@@ -7,7 +7,7 @@ const client = new ApolloClient({
 });
 
 const getData = async () => {
-  const response = client.query({
+  const response = await client.query({
     query: gql`
     {
         runlogs {
@@ -18,20 +18,20 @@ const getData = async () => {
     }
     `,
   });
-  return response;
+  return response.data.runlogs;
 }
 
 export function displayGraph(element: HTMLCanvasElement) {
   const result = getData();
 
-  result.then((data) => {
+  result.then((runlogs) => {
     new Chart(element, {
       type: 'line',
       data: {
-        labels: data.data.runlogs.map((r: { runningDate: any; }) => r.runningDate),
+        labels: runlogs.map((r: { runningDate: any; }) => r.runningDate),
         datasets: [{
           label: '# of Votes',
-          data: data.data.runlogs.map((r: { distance: any; }) => r.distance),
+          data: runlogs.map((r: { distance: any; }) => r.distance),
           borderWidth: 1
         }]
       },
