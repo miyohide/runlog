@@ -38,10 +38,10 @@ export function displayGraph(element: HTMLCanvasElement) {
     new Chart(element, {
       type: 'line',
       data: {
-        labels: data.data.runlogs.map((r) => r.runningDate),
+        labels: data.data.runlogs.map((r: { runningDate: any; }) => r.runningDate),
         datasets: [{
           label: '# of Votes',
-          data: data.data.runlogs.map((r) => r.distance),
+          data: data.data.runlogs.map((r: { distance: any; }) => r.distance),
           borderWidth: 1
         }]
       },
