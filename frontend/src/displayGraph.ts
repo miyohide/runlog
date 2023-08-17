@@ -31,7 +31,7 @@ export function displayGraph(element: HTMLCanvasElement) {
       data: {
         labels: runlogs.map((r) => r.runningDate),
         datasets: [{
-          label: '# of Votes',
+          label: 'Running log',
           data: runlogs.map((r) => r.distance),
           borderWidth: 1
         }]
