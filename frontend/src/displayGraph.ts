@@ -1,5 +1,6 @@
 import Chart from "chart.js/auto";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client/core";
+import { Query } from "./generated/graphql";
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
@@ -7,7 +8,7 @@ const client = new ApolloClient({
 });
 
 const getData = async () => {
-  const response = await client.query({
+  const response = await client.query<Query>({
     query: gql`
     {
         runlogs {
@@ -28,10 +29,10 @@ export function displayGraph(element: HTMLCanvasElement) {
     new Chart(element, {
       type: 'line',
       data: {
-        labels: runlogs.map((r: { runningDate: any; }) => r.runningDate),
+        labels: runlogs.map((r) => r.runningDate),
         datasets: [{
           label: '# of Votes',
-          data: runlogs.map((r: { distance: any; }) => r.distance),
+          data: runlogs.map((r) => r.distance),
           borderWidth: 1
         }]
       },
