@@ -8,7 +8,7 @@ module Types
     # They will be entry points for queries on your schema.
     field :runlogs, [Types::RunlogType], null: false
     def runlogs
-      Runlog.all
+      Runlog.order(running_date: :asc).all
     end
 
     # TODO: remove me
