@@ -9,5 +9,11 @@ module Types
     def runlogs
       Runlog.order(running_date: :asc).all
     end
+
+    field :sum_by_month, [Types::SumByMonthType], null: false
+    def sum_by_month
+      r = Runlog.group("STRFTIME('%Y%m', running_date)").sum("distance")
+      r.map{ |item| { year_and_month: item[0], distance: item[1] }}
+    end
   end
 end
