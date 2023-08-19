@@ -1,25 +1,22 @@
 import Chart from "chart.js/auto";
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client/core";
 import { Query } from "./generated/graphql";
+import { GraphQLClient, gql } from "graphql-request";
 
-const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
-  cache: new InMemoryCache(),
-});
+const endpoint = 'http://localhost:3000/graphql';
+const client = new GraphQLClient(endpoint);
+const document = gql`
+{
+  runlogs {
+      id
+      runningDate
+      distance
+  }
+}
+`
 
 const getData = async () => {
-  const response = await client.query<Query>({
-    query: gql`
-    {
-        runlogs {
-            id
-            runningDate
-            distance
-        }
-    }
-    `,
-  });
-  return response.data.runlogs;
+  const response = await client.request<Query>(document);
+  return response.runlogs;
 }
 
 export function displayGraph(element: HTMLCanvasElement) {
