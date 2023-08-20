@@ -1,3 +1,4 @@
+import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -25,8 +26,7 @@ export type Mutation = {
 export type Query = {
   __typename?: 'Query';
   runlogs: Array<Runlog>;
-  /** An example field added by the generator */
-  testField: Scalars['String']['output'];
+  sumByMonth: Array<SumByMonth>;
 };
 
 export type Runlog = {
@@ -72,4 +72,10 @@ export type Runlog = {
   totalLift?: Maybe<Scalars['Int']['output']>;
   travelTime?: Maybe<Scalars['Int']['output']>;
   updatedAt: Scalars['ISO8601DateTime']['output'];
+};
+
+export type SumByMonth = {
+  __typename?: 'SumByMonth';
+  distance?: Maybe<Scalars['Float']['output']>;
+  yearAndMonth: Scalars['String']['output'];
 };
