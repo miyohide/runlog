@@ -14,9 +14,23 @@ const document = gql`
 }
 `
 
+const distance_per_month_doc = gql`
+{
+  sumByMonth {
+    yearAndMonth
+    distance
+  }
+}
+`
+
 const getData = async () => {
   const response = await client.request<Query>(document);
   return response.runlogs;
+}
+
+const getDistance = async () => {
+  const response = await client.request<any>(distance_per_month_doc);
+  return response.sumByMonth;
 }
 
 export function displayGraph(element: HTMLCanvasElement) {
@@ -45,4 +59,32 @@ export function displayGraph(element: HTMLCanvasElement) {
   .catch((error) => {
     console.log('Error: ' + error);
   })
+}
+
+export function displayGraph2(element: HTMLCanvasElement) {
+  const result = getDistance();
+  result.then((sum) => {
+    new Chart(element, {
+      type: 'bar',
+      data: {
+        labels: sum.map((r) => r.yearAndMonth),
+        datasets: [{
+          label: 'Running log',
+          data: sum.map((r) => r.distance),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  })
+  .catch((error) => {
+    console.log('Error: ' + error);
+  })
+
 }

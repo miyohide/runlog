@@ -1,5 +1,5 @@
 import './style.css'
-import { displayGraph } from './displayGraph.ts'
+import { displayGraph, displayGraph2 } from './displayGraph.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -7,7 +7,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div style="position:relative;width:1300px;height:700px;">
       <canvas id="myChart"></canvas>
     </div>
+    <div style="position:relative;width:1300px;height:700px;">
+      <canvas id="distance_per_month"></canvas>
+    </div>
   </div>
 `
 
 displayGraph(document.querySelector<HTMLCanvasElement>('#myChart')!)
+displayGraph2(document.querySelector<HTMLCanvasElement>('#distance_per_month')!)
