@@ -23,7 +23,7 @@ const distance_per_month_doc = gql`
 }
 `
 
-const getData = async () => {
+const getAllRunningLog = async () => {
   const response = await client.request<Query>(document);
   return response.runlogs;
 }
@@ -34,7 +34,7 @@ const getDistance = async () => {
 }
 
 export function displayGraph(element: HTMLCanvasElement) {
-  const result = getData();
+  const result = getAllRunningLog();
 
   result.then((runlogs) => {
     new Chart(element, {
