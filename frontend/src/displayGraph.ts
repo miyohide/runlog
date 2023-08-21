@@ -14,7 +14,7 @@ const allRunningLogDocument = gql`
 }
 `
 
-const distance_per_month_doc = gql`
+const sumDistancePerMonthDocument = gql`
 {
   sumByMonth {
     yearAndMonth
@@ -29,7 +29,7 @@ const getAllRunningLog = async () => {
 }
 
 const getDistance = async () => {
-  const response = await client.request<Query>(distance_per_month_doc);
+  const response = await client.request<Query>(sumDistancePerMonthDocument);
   return response.sumByMonth;
 }
 
