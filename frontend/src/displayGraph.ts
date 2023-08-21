@@ -4,7 +4,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 const endpoint = 'http://localhost:3000/graphql';
 const client = new GraphQLClient(endpoint);
-const document = gql`
+const allRunningLogDocument = gql`
 {
   runlogs {
       id
@@ -24,7 +24,7 @@ const distance_per_month_doc = gql`
 `
 
 const getAllRunningLog = async () => {
-  const response = await client.request<Query>(document);
+  const response = await client.request<Query>(allRunningLogDocument);
   return response.runlogs;
 }
 
