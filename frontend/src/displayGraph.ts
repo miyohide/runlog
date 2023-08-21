@@ -29,7 +29,7 @@ const getData = async () => {
 }
 
 const getDistance = async () => {
-  const response = await client.request<any>(distance_per_month_doc);
+  const response = await client.request<Query>(distance_per_month_doc);
   return response.sumByMonth;
 }
 
