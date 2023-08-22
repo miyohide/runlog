@@ -33,7 +33,7 @@ const getDistance = async () => {
   return response.sumByMonth;
 }
 
-export function displayGraph(element: HTMLCanvasElement) {
+export function displayAllRunningLogGraph(element: HTMLCanvasElement) {
   const result = getAllRunningLog();
 
   result.then((runlogs) => {
