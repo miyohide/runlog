@@ -28,7 +28,7 @@ const getAllRunningLog = async () => {
   return response.runlogs;
 }
 
-const getDistance = async () => {
+const getSumDistancePerMonth = async () => {
   const response = await client.request<Query>(sumDistancePerMonthDocument);
   return response.sumByMonth;
 }
@@ -62,7 +62,7 @@ export function displayAllRunningLogGraph(element: HTMLCanvasElement) {
 }
 
 export function displayGraph2(element: HTMLCanvasElement) {
-  const result = getDistance();
+  const result = getSumDistancePerMonth();
   result.then((sum) => {
     new Chart(element, {
       type: 'bar',
