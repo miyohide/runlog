@@ -1,5 +1,5 @@
 import './style.css'
-import { displayAllRunningLogGraph, displayGraph2 } from './displayGraph.ts'
+import { displayAllRunningLogGraph, displaySumDistancePerMonthGraph } from './displayGraph.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -14,4 +14,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `
 
 displayAllRunningLogGraph(document.querySelector<HTMLCanvasElement>('#myChart')!)
-displayGraph2(document.querySelector<HTMLCanvasElement>('#distance_per_month')!)
+displaySumDistancePerMonthGraph(document.querySelector<HTMLCanvasElement>('#distance_per_month')!)

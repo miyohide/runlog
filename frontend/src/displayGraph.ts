@@ -61,7 +61,7 @@ export function displayAllRunningLogGraph(element: HTMLCanvasElement) {
   })
 }
 
-export function displayGraph2(element: HTMLCanvasElement) {
+export function displaySumDistancePerMonthGraph(element: HTMLCanvasElement) {
   const result = getSumDistancePerMonth();
   result.then((sum) => {
     new Chart(element, {
