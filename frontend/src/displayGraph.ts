@@ -69,7 +69,7 @@ export function displaySumDistancePerMonthGraph(element: HTMLCanvasElement) {
       data: {
         labels: sum.map((r) => r.yearAndMonth),
         datasets: [{
-          label: 'Running log',
+          label: 'Sum of Distance per Month',
           data: sum.map((r) => r.distance),
           borderWidth: 1
         }]
