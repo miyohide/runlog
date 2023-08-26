@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class RunlogType < Types::BaseObject
+  class AllRunningLogType < Types::BaseObject
     field :id, ID, null: false
     field :running_date, GraphQL::Types::ISO8601Date
     field :distance, Float
