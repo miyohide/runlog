@@ -5,8 +5,8 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     # Add root-level fields here.
-    field :runlogs, [Types::RunlogType], null: false
-    def runlogs
+    field :all_running_logs, [Types::AllRunningLogType], null: false
+    def all_running_logs
       Runlog.order(running_date: :asc).all
     end
 
